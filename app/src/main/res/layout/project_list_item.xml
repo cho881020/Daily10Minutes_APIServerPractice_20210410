@@ -16,13 +16,18 @@
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="#88000000" />
+
         <TextView
             android:id="@+id/projectTitleTxt"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:text="프로젝트 제목 자리" />
 
     </FrameLayout>
