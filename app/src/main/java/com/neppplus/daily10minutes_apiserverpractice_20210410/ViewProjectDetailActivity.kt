@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -143,6 +144,22 @@ class ViewProjectDetailActivity : BaseActivity() {
             tagListLayout.addView(tagTextView)
 
         }
+
+//        내 마지막 도전상태가 ONGOING 이면 => 포기하기 버튼만.
+//        그 외의 경우 => 재 신청 가능.
+
+        if (mProject.myLastStatus == "ONGOING") {
+
+            giveUpBtn.visibility = View.VISIBLE
+            applyBtn.visibility = View.GONE
+
+        }
+        else {
+            giveUpBtn.visibility = View.GONE
+            applyBtn.visibility = View.VISIBLE
+        }
+
+
     }
 
 }
