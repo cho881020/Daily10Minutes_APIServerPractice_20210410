@@ -60,13 +60,35 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="현재 참여 인원 : " />
+            android:text="현재 참여 인원 " />
 
         <TextView
             android:id="@+id/userCountTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="m명"
+            android:textColor="#000000"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증 방법 "/>
+
+        <TextView
+            android:id="@+id/proofMethodTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증방법 자리"
             android:textColor="#000000"
             android:textSize="17sp"/>
 
