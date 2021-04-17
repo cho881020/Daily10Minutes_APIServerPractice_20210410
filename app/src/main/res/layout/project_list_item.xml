@@ -10,12 +10,14 @@
 
 
         <ImageView
+            android:id="@+id/projectBackgroundImg"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
 
         <TextView
+            android:id="@+id/projectTitleTxt"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
