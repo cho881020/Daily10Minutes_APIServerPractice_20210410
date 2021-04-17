@@ -50,6 +50,8 @@ class MainActivity : BaseActivity() {
 //                    Project 클래스에 함수(기능) 추가. => JSONObject를 넣으면 => Project 형태로 변환해주는 기능.
                     val project = Project.getProjectFromJson(projectObj)
 
+                    mProjects.add( project )
+
                 }
 
 
