@@ -146,6 +146,33 @@ class ServerUtil {
 
             Log.d("가공된URL", urlString)
 
+//            어디로 + 어떤 데이터? => 모두 urlString에 적혀있는 상태.
+//            어떤메쏘드? get => Request에 담아주자.
+
+            val request = Request.Builder()
+                    .url(urlString)
+                    .get()
+                    .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+//                    response 전체 > 본문 (body) 추출 (String) > JSONObject 변환 > 이 기능을 불러낸 화면에 전달.
+
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답본문", jsonObj.toString())
+
+                    handler?.onResponse(jsonObj)
+                }
+
+            })
+
         }
 
     }
