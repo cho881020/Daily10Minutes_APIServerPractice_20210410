@@ -3,6 +3,8 @@ package com.neppplus.daily10minutes_apiserverpractice_20210410
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.neppplus.daily10minutes_apiserverpractice_20210410.datas.Project
+import com.neppplus.daily10minutes_apiserverpractice_20210410.utils.ServerUtil
+import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
@@ -29,7 +31,32 @@ class MainActivity : BaseActivity() {
     fun getProjectListFromServer() {
 //        실제로 서버에서 받아오는 기능 수행.
 
-        ServerUtil
+        ServerUtil.getRequestProjectList(mContext, object : ServerUtil.JsonResponseHandler {
+            override fun onResponse(jsonObj: JSONObject) {
+
+                val dataObj = jsonObj.getJSONObject("data")
+
+                val projectsArr = dataObj.getJSONArray("projects")
+
+//                반복문 for문으로 => projectsArr 내부를 하나씩 꺼내서 파싱.
+
+                for ( i  in 0 until projectsArr.length() ) {
+
+//                    [  ] 안에 있는 => {  }들을, 하나 꺼내서 => 파싱 : Project형태로 변환. => mProjects에 추가.
+
+                    val projectObj = projectsArr.getJSONObject(i)
+
+//                    Project 클래스에 보조 생성자 추가. => 재료 없이도 만들 수 있게.
+//                    Project 클래스에 함수(기능) 추가. => JSONObject를 넣으면 => Project 형태로 변환해주는 기능.
+                    val project = Project.getProjectFromJson(projectObj)
+
+                }
+
+
+
+            }
+
+        })
 
     }
 
