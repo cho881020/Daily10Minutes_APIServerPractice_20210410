@@ -113,4 +113,13 @@
         android:layout_marginRight="10dp"
         android:text="참여 신청하기" />
 
+    <Button
+        android:id="@+id/giveUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="프로젝트 포기" />
+
+
 </LinearLayout>

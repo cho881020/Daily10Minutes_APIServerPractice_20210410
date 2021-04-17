@@ -24,6 +24,22 @@ class ViewProjectDetailActivity : BaseActivity() {
     }
     override fun setupEvents() {
 
+        giveUpBtn.setOnClickListener {
+
+//            서버에 포기 의사 전달
+
+            ServerUtil.deleteRequestGiveUpProject(mContext, mProject.id, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(jsonObj: JSONObject) {
+
+
+
+                }
+
+            })
+
+
+        }
+
         applyBtn.setOnClickListener {
 
 //            서버에 참여의사 전달
