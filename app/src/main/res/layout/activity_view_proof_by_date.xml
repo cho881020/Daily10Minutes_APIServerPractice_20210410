@@ -20,6 +20,7 @@
             android:text="조회 일자" />
 
         <TextView
+            android:id="@+id/dateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2021-04-24"
@@ -33,6 +34,7 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/selectDateBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="날짜 선택" />
