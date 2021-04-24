@@ -40,7 +40,8 @@ class ViewProofByDateActivity : BaseActivity() {
                     mSeletedDate.set(year,month,dayOfMonth)
 
 //                    SimpleDateFormat 이용, 날짜 -> String 양식 가공.
-                    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+//                    2020년 5월 3일 의 양식으로 출력.
+                    val simpleDateFormat = SimpleDateFormat("yyyy년 M월 d일")
                     dateTxt.text = simpleDateFormat.format(mSeletedDate.time)
 
                 }
