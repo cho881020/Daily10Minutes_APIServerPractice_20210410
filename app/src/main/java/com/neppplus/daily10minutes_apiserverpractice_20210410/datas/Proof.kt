@@ -1,6 +1,9 @@
 package com.neppplus.daily10minutes_apiserverpractice_20210410.datas
 
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Proof {
 
@@ -14,6 +17,9 @@ class Proof {
 
 //    이 글을 누가 썼는지? 사용자 정보를 통째로 변수로.
     lateinit var writer : User
+
+//    인증 글 작성 일시 저장 변수.
+    val proofDateTime = Calendar.getInstance()
 
     companion object {
 
@@ -41,6 +47,18 @@ class Proof {
 
 //            이 글의 작성자 정보도 파싱.
             proof.writer = User.getUserFromJson( jsonObj.getJSONObject("user") )
+
+//            이 글이 작성된 일시도 파싱. (서버가 주는 데이터 : String => Calendar 저장.)
+
+//            String  파싱 => Calendar 로 변환
+            val proofTimeStr = jsonObj.getString("proof_time")
+
+//            서버가 내려주는 문장을 분석하기 위한 양식
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+
+//            만들어진 일/시 (Date) 를 => Calendar의 일/시로 반영.
+
+            proof.proofDateTime.time = sdf.parse(proofTimeStr)
 
             return proof
 
