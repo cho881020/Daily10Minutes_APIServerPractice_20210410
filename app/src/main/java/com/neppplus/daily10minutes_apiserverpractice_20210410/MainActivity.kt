@@ -72,6 +72,9 @@ class MainActivity : BaseActivity() {
         mProjectAdapter = ProjectAdapter(mContext, R.layout.project_list_item, mProjects)
         projectListView.adapter = mProjectAdapter
 
+//        BaseActivity가 물려주는 backImg를 메인화면에서만, 숨김처리.
+        backImg.visibility = View.GONE
+
     }
 
     fun getProjectListFromServer() {
