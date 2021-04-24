@@ -4,8 +4,10 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.iid.FirebaseInstanceId
 import com.neppplus.daily10minutes_apiserverpractice_20210410.adapters.ProjectAdapter
 import com.neppplus.daily10minutes_apiserverpractice_20210410.datas.Project
 import com.neppplus.daily10minutes_apiserverpractice_20210410.utils.ContextUtil
@@ -74,6 +76,10 @@ class MainActivity : BaseActivity() {
 
 //        BaseActivity가 물려주는 backImg를 메인화면에서만, 숨김처리.
         backImg.visibility = View.GONE
+
+
+//        임시방편 : 우리 앱의 기기별 고유번호 (DeviceToken) 값을 추출해서 로그로.
+        Log.d("기기토큰", FirebaseInstanceId.getInstance().token!!)
 
     }
 
