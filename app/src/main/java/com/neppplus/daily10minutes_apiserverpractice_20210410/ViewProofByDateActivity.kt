@@ -91,7 +91,16 @@ class ViewProofByDateActivity : BaseActivity() {
         ServerUtil.getRequestProjectProofListByDate(mContext, mProject.id, dateStr, object : ServerUtil.JsonResponseHandler {
             override fun onResponse(jsonObj: JSONObject) {
 
+                val dataObj = jsonObj.getJSONObject("data")
+                val projectObj = dataObj.getJSONObject("project")
+                val proofsArr = projectObj.getJSONArray("proofs")
 
+                for (i  in  0 until  proofsArr.length()) {
+//                    인증글 JSON -> Proof 객체로 변환 -> mProofList에 추가.
+
+                    mProofList.add( Proof.getProofFromJson( proofsArr.getJSONObject(i) ) )
+
+                }
 
             }
 
