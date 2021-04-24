@@ -1,6 +1,7 @@
 package com.neppplus.daily10minutes_apiserverpractice_20210410
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,6 +12,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun setupEvents()
     abstract fun setValues()
+
+//    액션바에 등록한 UI요소들은 -> BaseActivity를 통해 각 화면에 분배됨.
+//    BaseActivity의 멤버변수로 만들어두어야 => 각각의 화면에서 물려받아서 사용 가능.
+
+    lateinit var backImg : ImageView
 
 //    onCreate -> 일부 내용 변경해보자. -> 상속받은 함수 내용 변경 : override
 
@@ -58,6 +64,15 @@ abstract class BaseActivity : AppCompatActivity() {
 //        Toolbar 선택 : androidx가 주는걸로 선택.
         val myToolBar = defaultActionBar.customView.parent as Toolbar
         myToolBar.setContentInsetsAbsolute(0, 0)
+
+
+//        코틀린에서도 UI요소를 사용할 수 있도록 추가 세팅.
+        backImg = defaultActionBar.customView.findViewById(R.id.backImg)
+
+        backImg.setOnClickListener {
+//            뒤로가기 눌리면 => 화면 종료
+            finish()
+        }
 
     }
 
