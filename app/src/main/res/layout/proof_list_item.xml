@@ -17,11 +17,13 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/writerProfileImg"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/writerNicknameTxt"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,6 +35,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/proofTimeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="오전 8시 5분" />
@@ -42,6 +45,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/proofContentTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="작성된 글 내용"
@@ -50,6 +54,7 @@
         android:padding="10dp"/>
 
     <ImageView
+        android:id="@+id/proofImg"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:src="@mipmap/ic_launcher"
@@ -61,12 +66,14 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/likeBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="좋아요 m개"
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/replyBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="댓글 n개"
